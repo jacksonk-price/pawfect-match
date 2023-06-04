@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_04_170646) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_04_201629) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -33,6 +33,27 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_04_170646) do
     t.integer "energy_score"
     t.integer "barking_score"
     t.integer "mental_stim_score"
+  end
+
+  create_table "surveys", force: :cascade do |t|
+    t.string "name_input"
+    t.string "size_input"
+    t.integer "family_input"
+    t.integer "children_input"
+    t.integer "other_dog_input"
+    t.integer "shedding_input"
+    t.integer "grooming_input"
+    t.integer "drooling_input"
+    t.integer "stranger_input"
+    t.integer "playfulness_input"
+    t.integer "protective_input"
+    t.integer "adaptability_input"
+    t.integer "trainability_input"
+    t.integer "energy_input"
+    t.integer "barking_input"
+    t.integer "mental_stim_input"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
