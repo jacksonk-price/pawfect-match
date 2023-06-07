@@ -1,3 +1,2 @@
 class Dog < ApplicationRecord
-
 end
