@@ -1,2 +1,17 @@
 <h1>Let's get started</h1>
+<%= form_for @survey do |s| %>
+  <%= s.label :name_input, 'Let\'s start with your name' %>
+  <%= s.text_field :name_input, placeholder: 'Enter your name' %>
 
+  <% @questions.each_with_index do |question, index| %>
+    <legend><%= index + 1 %>. <%= question.content %></legend><br>
+    <fieldset>
+      <% question.answer_choices.each do |answer_choice| %>
+        <%= s.radio_button question.survey_attribute_name.to_sym, answer_choice.value %>
+        <%= s.label question.survey_attribute_name.to_sym, answer_choice.text %>
+      <% end %>
+      <br><br>
+    </fieldset>
+  <% end %>
+  <%= s.submit 'Submit' %>
+<% end %>
