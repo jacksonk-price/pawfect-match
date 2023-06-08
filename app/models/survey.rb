@@ -4,5 +4,6 @@ class Survey < ApplicationRecord
             :drooling_input, :stranger_input, :playfulness_input, :protective_input, :adaptability_input,
             :trainability_input, :energy_input, :barking_input, :mental_stim_input,
             presence: true,
-            numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 5 }
+            numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 5 }
+  has_one :survey_result
 end
