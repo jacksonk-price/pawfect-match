@@ -15,7 +15,7 @@ RSpec.describe Survey, type: :model do
     expect(survey).to be_valid
   end
 
-  it 'has numerical inputs between 1 and 5' do
+  it 'has numerical inputs between 0 and 5' do
     attributes = %i[
       size_input family_input children_input other_dog_input shedding_input
       grooming_input drooling_input stranger_input playfulness_input protective_input
@@ -35,7 +35,7 @@ RSpec.describe Survey, type: :model do
       survey[attribute] = nil
       expect(survey).to_not be_valid
 
-      survey[attribute] = 0
+      survey[attribute] = -1
       expect(survey).to_not be_valid
 
       survey[attribute] = 6
