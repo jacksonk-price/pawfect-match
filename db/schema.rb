@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_07_001442) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_08_012909) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -52,13 +52,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_07_001442) do
   create_table "questions", force: :cascade do |t|
     t.string "content"
     t.text "description"
+    t.integer "order"
+    t.string "survey_attribute_name"
+  end
+
+  create_table "survey_results", force: :cascade do |t|
+    t.integer "dog_breed_id"
+    t.bigint "survey_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["survey_id"], name: "index_survey_results_on_survey_id"
   end
 
   create_table "surveys", force: :cascade do |t|
     t.string "name_input"
-    t.string "size_input"
     t.integer "family_input"
     t.integer "children_input"
     t.integer "other_dog_input"
@@ -75,8 +82,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_07_001442) do
     t.integer "mental_stim_input"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "size_input"
   end
 
   add_foreign_key "question_answer_choices", "answer_choices"
   add_foreign_key "question_answer_choices", "questions"
+  add_foreign_key "survey_results", "surveys"
 end
