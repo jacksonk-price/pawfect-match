@@ -9,8 +9,9 @@ class SurveysController < ApplicationController
     respond_to do |format|
       if @survey.save
         suggested_dog_breed = SurveyResultCalculator.new(@survey).perform
-        survey_result = SurveyResult.create(dog_breed_id: suggested_dog_breed.id, survey_id: @survey.id)
-        format.html { redirect_to survey_result_path(survey_result), notice: "Survey was successfully created." }
+        survey_result = SurveyResult.create(dog_breed_id: suggested_dog_breed[:breed].id, survey_id: @survey.id)
+
+        format.html { redirect_to survey_result_path(survey_result.id), notice: "Survey was successfully created." }
       else
         Rails.logger.info @survey.errors.messages
       end
