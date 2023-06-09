@@ -1,0 +1,118 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --primary: #0075FF;
+  --lightgray: #d3d3d3;
+}
+
+* {
+  font-family: 'Poppins', sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: image-url('background.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #fff;
+}
+
+fieldset {
+  display: flex;
+  flex-direction: column;
+  border: none;
+}
+
+legend {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+input[type='text'] {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.8rem 1.5rem;
+  border: 1px var(--lightgray) solid;
+  border-radius: 1rem;
+  font-size: 1rem;
+}
+
+input[type='text']::placeholder {
+  color: var(--lightgray);
+}
+
+.radio-container {
+  background-color: #fff;
+  margin-top: 1rem;
+  border: 1px var(--lightgray) solid;
+  border-radius: 1rem;
+}
+
+.radio-container:hover {
+  background-color: #fafafa;
+}
+
+.radio-container label {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 1rem 1.5rem;
+  margin: 0;
+}
+
+.radio-container input[type='radio'] {
+  margin-right: 0.8rem;
+  transform: scale(1.2);
+}
+
+/* UTILITIES */
+.container {
+  padding: 2rem;
+  margin: auto;
+  max-width: 800px;
+}
+
+.options {
+  display: flex;
+  justify-content: end;
+  margin-top: 1rem;
+}
+
+/* BUTTONS */
+.btn {
+  text-transform: uppercase;
+  font-size: 1rem;
+  text-align: center;
+  border: none;
+  font-weight: 600;
+  display: inline-block;
+  border-radius: 0.5rem;
+  margin: 0.5rem 0;
+  padding: 0.8rem 1rem;
+  text-decoration: none;
+  transition: all 0.1s ease-in-out 0s;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: #fff;
+}
