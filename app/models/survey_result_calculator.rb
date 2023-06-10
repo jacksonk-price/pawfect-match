@@ -57,7 +57,7 @@ class SurveyResultCalculator
       { breed: dog_breed, distance: total_distance }
     end
 
-    suggested_breeds.sort_by { |d| d[:distance] }.first
+    suggested_breeds.sort_by { |d| d[:distance] }.first 3
   end
 
   def find_total_distance(dog_breed)

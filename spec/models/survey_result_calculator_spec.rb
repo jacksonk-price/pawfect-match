@@ -46,8 +46,9 @@ RSpec.describe SurveyResultCalculator do
   describe '.perform' do
     it 'returns the correct suggested breed' do
       result = SurveyResultCalculator.new(survey1).perform
-      suggested_breed = result[:breed]
-      expect(suggested_breed).to eq(dog1)
+      puts result.inspect
+      suggested_breed = result.first
+      expect(suggested_breed[:breed]).to eq(dog1)
     end
   end
 end

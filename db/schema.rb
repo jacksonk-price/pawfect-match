@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_08_012909) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_09_193841) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -56,6 +56,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_08_012909) do
     t.string "survey_attribute_name"
   end
 
+  create_table "suggested_breeds", force: :cascade do |t|
+    t.integer "dog_id"
+    t.bigint "survey_result_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["survey_result_id"], name: "index_suggested_breeds_on_survey_result_id"
+  end
+
   create_table "survey_results", force: :cascade do |t|
     t.integer "dog_breed_id"
     t.bigint "survey_id", null: false
@@ -87,5 +95,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_08_012909) do
 
   add_foreign_key "question_answer_choices", "answer_choices"
   add_foreign_key "question_answer_choices", "questions"
+  add_foreign_key "suggested_breeds", "survey_results"
   add_foreign_key "survey_results", "surveys"
 end
