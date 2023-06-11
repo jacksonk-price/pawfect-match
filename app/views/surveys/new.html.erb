@@ -1,35 +1,37 @@
 <div class="container">
-  <%= form_for @survey, data: { controller: 'survey', survey_hidden_class: 'hidden' } do |s| %>
-    <div class="question-container" data-survey-target="question">
-      <fieldset>
-        <legend>Let's start with your name</legend>
-        <%= s.text_field :name_input, placeholder: 'Enter your name' %>
-      </fieldset>
-      <div class="options">
-        <%= button_tag 'Continue', type: 'button', class: 'btn btn-primary', data: { action: 'click->survey#goToNextQuestion' } %>
-      </div>
-    </div>
-    <% @questions.each_with_index do |question, index| %>
-      <div class="question-container hidden" data-survey-target="question">
+  <div class="form-container">
+    <%= form_for @survey, data: { controller: 'survey', survey_hidden_class: 'hidden' } do |s| %>
+      <div class="question-container" data-survey-target="question">
         <fieldset>
-          <legend><%= index + 1 %>. <%= question.content %></legend>
-          <% question.answer_choices.each_with_index do |answer_choice, i| %>
-            <div class="radio-container">
-              <%= s.label "#{question.survey_attribute_name}_#{answer_choice.value}" do %>
-                  <%= s.radio_button question.survey_attribute_name.to_sym, answer_choice.value %>
-                  <%= answer_choice.text %>
-                <% end %>
-              </div>
-            <% end %>
-          </fieldset>
+          <legend>Let's start with your name</legend>
+          <%= s.text_field :name_input, placeholder: 'Enter your name' %>
+        </fieldset>
         <div class="options">
-          <% if index < (@questions.count - 1) %>
-            <%= button_tag 'Continue', type: 'button', class: 'btn btn-primary', data: { action: 'click->survey#goToNextQuestion' } %>
-          <% else %>
-            <%= s.submit 'Submit', class: 'btn btn-primary' %>
-          <% end %>
+          <%= button_tag 'Continue', type: 'button', class: 'btn btn-primary', data: { action: 'click->survey#goToNextQuestion' } %>
         </div>
       </div>
+      <% @questions.each_with_index do |question, index| %>
+        <div class="question-container hidden" data-survey-target="question">
+          <fieldset>
+            <legend><%= index + 1 %>. <%= question.content %></legend>
+            <% question.answer_choices.each_with_index do |answer_choice, i| %>
+              <div class="radio-container">
+                <%= s.label "#{question.survey_attribute_name}_#{answer_choice.value}" do %>
+                    <%= s.radio_button question.survey_attribute_name.to_sym, answer_choice.value %>
+                    <%= answer_choice.text %>
+                  <% end %>
+                </div>
+              <% end %>
+            </fieldset>
+          <div class="options">
+            <% if index < (@questions.count - 1) %>
+              <%= button_tag 'Continue', type: 'button', class: 'btn btn-primary', data: { action: 'click->survey#goToNextQuestion' } %>
+            <% else %>
+              <%= s.submit 'Submit', class: 'btn btn-primary' %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>

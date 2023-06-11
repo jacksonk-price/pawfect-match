@@ -17,6 +17,7 @@
 
 :root {
   --primary: #0054B8;
+  --primary-dark: #003E8C;
   --lightgray: #d3d3d3;
 }
 
@@ -25,6 +26,10 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+html, body, main {
+  height: 100%;
 }
 
 body {
@@ -46,6 +51,10 @@ legend {
   font-weight: bold;
 }
 
+form {
+  width: 100%;
+}
+
 input[type='text'] {
   width: 100%;
   margin-top: 1rem;
@@ -57,6 +66,20 @@ input[type='text'] {
 
 input[type='text']::placeholder {
   color: var(--lightgray);
+}
+
+.container {
+  height: 100%;
+  padding: 2rem;
+  margin: auto;
+  max-width: 800px;
+}
+
+.form-container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .radio-container {
@@ -84,13 +107,6 @@ input[type='text']::placeholder {
   transform: scale(1.2);
 }
 
-/* UTILITIES */
-.container {
-  padding: 2rem;
-  margin: auto;
-  max-width: 800px;
-}
-
 .options {
   display: flex;
   justify-content: end;
@@ -103,6 +119,7 @@ input[type='text']::placeholder {
 
 /* BUTTONS */
 .btn {
+  cursor: pointer;
   text-transform: uppercase;
   font-size: 1rem;
   text-align: center;
@@ -119,4 +136,8 @@ input[type='text']::placeholder {
 .btn-primary {
   background-color: var(--primary);
   color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
 }
