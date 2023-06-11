@@ -8,10 +8,11 @@ class SurveysController < ApplicationController
     @survey = Survey.new(survey_params)
     respond_to do |format|
       if @survey.save
-        top_dog_breeds = SurveyResultCalculator.new(@survey).perform
+        top_suggestions = SurveyResultCalculator.new(@survey).perform
         survey_result = SurveyResult.create(survey_id: @survey.id)
-        top_dog_breeds.each do |dog_breed|
-          SuggestedBreed.create(dog_id: dog_breed.id, survey_id: @survey.id)
+        top_suggestions.each do |suggestion|
+          dog = suggestion[:breed]
+          SuggestedBreed.create(dog_id: dog.id, survey_result_id: survey_result.id)
         end
 
         format.html { redirect_to survey_result_path(survey_result.id), notice: "Survey was successfully created." }

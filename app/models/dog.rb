@@ -1,4 +1,6 @@
 class Dog < ApplicationRecord
+  has_many :suggested_breeds
+
   scope :any_size, -> { where('min_weight > 0 AND max_weight < 250') }
   scope :small, -> { where("max_weight < 22") }
   scope :medium, -> { where('min_weight > 22 AND max_weight < 55') }
