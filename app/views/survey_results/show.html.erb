@@ -1,4 +1,6 @@
 <h1>hello world</h1>
 <%= @survey.inspect %>
 <br><br>
-<%= @suggested_dog_breed.inspect %>
+<% @suggested_dog_breeds.each do |dog| %>
+  <%= dog.inspect %> <br><br><br>
+<% end %>

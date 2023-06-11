@@ -1,13 +1,16 @@
 <div class="container">
-  <%= form_for @survey do |s| %>
-    <div class="question-container">
+  <%= form_for @survey, data: { controller: 'survey', survey_hidden_class: 'hidden' } do |s| %>
+    <div class="question-container" data-survey-target="question">
       <fieldset>
         <legend>Let's start with your name</legend>
         <%= s.text_field :name_input, placeholder: 'Enter your name' %>
       </fieldset>
+      <div class="options">
+        <%= button_tag 'Continue', type: 'button', class: 'btn btn-primary', data: { action: 'click->survey#goToNextQuestion' } %>
+      </div>
     </div>
     <% @questions.each_with_index do |question, index| %>
-      <div class="question-container hidden">
+      <div class="question-container hidden" data-survey-target="question">
         <fieldset>
           <legend><%= index + 1 %>. <%= question.content %></legend>
           <% question.answer_choices.each_with_index do |answer_choice, i| %>
@@ -19,10 +22,14 @@
               </div>
             <% end %>
           </fieldset>
+        <div class="options">
+          <% if index < (@questions.count - 1) %>
+            <%= button_tag 'Continue', type: 'button', class: 'btn btn-primary', data: { action: 'click->survey#goToNextQuestion' } %>
+          <% else %>
+            <%= s.submit 'Submit', class: 'btn btn-primary' %>
+          <% end %>
+        </div>
       </div>
     <% end %>
-    <div class="options">
-      <%= s.submit 'Submit', class: 'btn btn-primary' %>
-    </div>
   <% end %>
 </div>
