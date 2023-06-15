@@ -75,9 +75,16 @@ input[type='text']::placeholder {
   max-width: 800px;
 }
 
-.form-container {
-  height: 100%;
+.flex {
   display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-wrapper {
+  height: 100%;
   justify-content: center;
   align-items: center;
 }

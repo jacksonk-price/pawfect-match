@@ -1,6 +1,9 @@
-<h1>hello world</h1>
-<%= @survey.inspect %>
-<br><br>
-<% @suggested_dog_breeds.each do |dog| %>
-  <%= dog.inspect %> <br><br><br>
-<% end %>
+<div class="container">
+  <div class="flex flex-wrapper flex-column">
+    <% @suggested_dog_breeds.each do |dog| %>
+      <div class="dog-card">
+        <h1><%= dog.name %></h1>
+      </div>
+    <% end %>
+  </div>
+</div>
