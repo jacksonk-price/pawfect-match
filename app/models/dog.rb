@@ -10,4 +10,14 @@ class Dog < ApplicationRecord
   def average_weight
     (min_weight + max_weight) / 2
   end
+
+  def akc_url
+    "https://www.akc.org/dog-breeds/#{formatted_name}"
+  end
+
+  private
+
+  def formatted_name
+    name.unicode_normalize(:nfkd).encode('ASCII', replace: '').downcase.gsub(' ','-')
+  end
 end

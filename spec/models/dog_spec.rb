@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Dog, type: :model do
-  let!(:small_dog) { Dog.create(min_weight: 10, max_weight: 15) }
-  let!(:medium_dog) { Dog.create(min_weight: 25, max_weight: 35) }
-  let!(:large_dog) { Dog.create(min_weight: 85, max_weight: 112) }
-  let!(:very_large_dog) { Dog.create(min_weight: 115, max_weight: 245) }
+  let!(:small_dog) { Dog.create(name: 'Affenpinscher', min_weight: 10, max_weight: 15) }
+  let!(:medium_dog) { Dog.create(name: 'Yorkshire Terrier', min_weight: 25, max_weight: 35) }
+  let!(:large_dog) { Dog.create(name: 'Treeing Tennessee Brindle', min_weight: 85, max_weight: 112) }
+  let!(:very_large_dog) { Dog.create(name: 'Slovakian Wirehaired Pointer', min_weight: 115, max_weight: 245) }
 
   after(:each) do
     Dog.delete_all
@@ -78,6 +78,15 @@ RSpec.describe Dog, type: :model do
         very_large_dog_average = very_large_dog.average_weight
         expect(very_large_dog_average).to eq(180)
       end
+    end
+  end
+
+  describe '#akc_url' do
+    it "returns the url to the dog's profile on the American Kennel Club website" do
+      expect(small_dog.akc_url).to eq('https://www.akc.org/dog-breeds/affenpinscher')
+      expect(medium_dog.akc_url).to eq('https://www.akc.org/dog-breeds/yorkshire-terrier')
+      expect(large_dog.akc_url).to eq('https://www.akc.org/dog-breeds/treeing-tennessee-brindle')
+      expect(very_large_dog.akc_url).to eq('https://www.akc.org/dog-breeds/slovakian-wirehaired-pointer')
     end
   end
 end
