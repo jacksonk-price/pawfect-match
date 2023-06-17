@@ -56,4 +56,28 @@ RSpec.describe Dog, type: :model do
       expect(result).not_to include(small_dog, medium_dog, large_dog)
     end
   end
+
+  describe '#average_weight' do
+    context 'when calculating the average weight' do
+      it 'returns the average weight of a small dog' do
+        small_dog_average = small_dog.average_weight
+        expect(small_dog_average).to eq(12)
+      end
+
+      it 'returns the average weight of a medium dog' do
+        medium_dog_average = medium_dog.average_weight
+        expect(medium_dog_average).to eq(30)
+      end
+
+      it 'returns the average weight of a large dog' do
+        large_dog_average = large_dog.average_weight
+        expect(large_dog_average).to eq(98)
+      end
+
+      it 'returns the average weight of a very large dog' do
+        very_large_dog_average = very_large_dog.average_weight
+        expect(very_large_dog_average).to eq(180)
+      end
+    end
+  end
 end

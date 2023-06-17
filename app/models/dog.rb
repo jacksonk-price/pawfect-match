@@ -6,4 +6,8 @@ class Dog < ApplicationRecord
   scope :medium, -> { where('min_weight > 22 AND max_weight < 55') }
   scope :large, -> { where('min_weight > 55 AND max_weight < 115') }
   scope :very_large, -> { where('max_weight > 115') }
+
+  def average_weight
+    (min_weight + max_weight) / 2
+  end
 end
