@@ -1,9 +1,10 @@
 <div class="container">
   <div class="flex flex-wrapper">
+    <%= render 'shared/disclaimer' %>
     <%= form_for @survey, data: { controller: 'survey', survey_hidden_class: 'hidden' } do |s| %>
       <div class="question-container" data-survey-target="question">
         <fieldset>
-          <legend>Let's start with your name</legend>
+          <legend>Now, let's start with your name</legend>
           <%= s.text_field :name_input, placeholder: 'Enter your name' %>
         </fieldset>
         <div class="options">

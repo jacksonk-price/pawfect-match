@@ -1,9 +1,13 @@
 <div class="container">
   <div class="flex flex-wrapper flex-column">
+    <%= render 'shared/disclaimer' %>
     <% @suggested_dog_breeds.each_with_index do |dog, i| %>
       <div class="dog-card">
-        <p class="accent-title"><%= top_three_wording(i) %></p>
-        <h2><%= dog.name %></h2>
+        <h2 class="accent-title"><%= top_three_wording(i) %></h2>
+        <div class="dog-head">
+          <h2><%= dog.name %></h2>
+          <%= link_to 'View on American Kennel Club &nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i>'.html_safe, dog.akc_url, class: 'external-link', target: '_blank'  %>
+        </div>
         <div class="dog-attribute">
           <h3>Average Weight:  <%= dog.average_weight %>lbs</h3>
         </div>

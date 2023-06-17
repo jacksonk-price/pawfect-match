@@ -11,9 +11,9 @@ module SurveyResultsHelper
 
   def display_score(score, index)
     if score < index
-      '<i class="fa-solid fa-paw fa-2x gray-paw"></i>'
+      '<i class="fa-solid fa-bone bone gray-bone"></i>'
     else
-      '<i class="fa-solid fa-paw fa-2x blue-paw"></i>'
+      '<i class="fa-solid fa-bone bone blue-bone"></i>'
     end
   end
 end

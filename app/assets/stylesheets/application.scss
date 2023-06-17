@@ -19,6 +19,7 @@
   --primary: #0054B8;
   --primary-dark: #003E8C;
   --lightgray: #d3d3d3;
+  --pink: #f472b6;
 }
 
 * {
@@ -29,8 +30,18 @@
 }
 
 html, body, main {
-  height: 100%;
   min-height: 100%;
+}
+
+a {
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.external-link {
+  display: block;
+  margin-top: 0.5rem;
 }
 
 body {
@@ -76,9 +87,31 @@ hr {
   margin: 1rem 0;
 }
 
-.container {
-  min-height: 100%;
+.disclaimer {
+  background-color: #fff;
   padding: 2rem;
+  margin-bottom: 1.5rem;
+  border-radius: 1rem;
+  border: 1px var(--lightgray) solid;
+}
+
+.disclaimer p {
+  margin: 1rem 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo i {
+  margin-right: 1rem;
+  font-size: 2.5rem;
+  color: var(--pink);
+}
+
+.container {
+  padding: 1rem;
   margin: auto;
   max-width: 800px;
 }
@@ -93,6 +126,7 @@ hr {
 
 .flex-wrapper {
   height: 100%;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -135,14 +169,21 @@ hr {
 .dog-card {
   background-color: #fff;
   padding: 2rem;
-  margin: 1rem 0;
+  margin-bottom: 1.5rem;
   border-radius: 1rem;
   border: 1px var(--lightgray) solid;
 }
 
 .accent-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
   color: var(--primary);
-  font-weight: 600;
+  font-weight: 700;
+}
+
+.dog-head {
+  display: flex;
+  justify-content: space-between;
 }
 
 .dog-attributes {
@@ -157,11 +198,16 @@ hr {
   margin: 1rem 0;
 }
 
-.blue-paw {
+.bone {
+  font-size: 2rem;
+  margin-right: 1rem;
+}
+
+.blue-bone {
   color: var(--primary);
 }
 
-.gray-paw {
+.gray-bone {
   color: var(--lightgray);
 }
 
