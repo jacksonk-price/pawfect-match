@@ -30,6 +30,7 @@
 
 html, body, main {
   height: 100%;
+  min-height: 100%;
 }
 
 body {
@@ -68,8 +69,15 @@ input[type='text']::placeholder {
   color: var(--lightgray);
 }
 
+hr {
+  background-color: var(--lightgray);
+  height: 1px;
+  border: none;
+  margin: 1rem 0;
+}
+
 .container {
-  height: 100%;
+  min-height: 100%;
   padding: 2rem;
   margin: auto;
   max-width: 800px;
@@ -122,6 +130,39 @@ input[type='text']::placeholder {
 
 .hidden {
   display: none;
+}
+
+.dog-card {
+  background-color: #fff;
+  padding: 2rem;
+  margin: 1rem 0;
+  border-radius: 1rem;
+  border: 1px var(--lightgray) solid;
+}
+
+.accent-title {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.dog-attributes {
+  margin-top: 1rem;
+}
+
+.dog-attribute {
+  margin: 1rem 0;
+}
+
+.paw-values {
+  margin: 1rem 0;
+}
+
+.blue-paw {
+  color: var(--primary);
+}
+
+.gray-paw {
+  color: var(--lightgray);
 }
 
 /* BUTTONS */
