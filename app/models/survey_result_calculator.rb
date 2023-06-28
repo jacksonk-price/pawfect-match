@@ -21,10 +21,6 @@ class SurveyResultCalculator
     Dog.public_send(selected_size)
   end
 
-  def filter_family(dog_breeds)
-    @survey.family_input == 1 ? dog_breeds.where('family_score >= 3') : dog_breeds
-  end
-
   def filter_yes_and_no_questions(dog_breeds)
     dog_breeds = filter_family(dog_breeds)
     dog_breeds = filter_children(dog_breeds)
@@ -32,6 +28,10 @@ class SurveyResultCalculator
     dog_breeds = filter_stranger(dog_breeds)
 
     filter_protective(dog_breeds)
+  end
+
+  def filter_family(dog_breeds)
+    @survey.family_input == 1 ? dog_breeds.where('family_score >= 3') : dog_breeds
   end
 
   def filter_children(dog_breeds)
