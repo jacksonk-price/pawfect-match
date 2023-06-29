@@ -100,6 +100,7 @@ hr {
 }
 
 .logo {
+  padding-top: 1.5rem;
   display: flex;
   align-items: center;
 }
@@ -209,6 +210,17 @@ hr {
 
 .gray-bone {
   color: var(--lightgray);
+}
+
+.flash {
+  width: 100%;
+  background-color: red;
+  text-align: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding: 1rem 1.5rem;
+  border-radius: 0 0 1rem 1rem;
 }
 
 /* BUTTONS */
