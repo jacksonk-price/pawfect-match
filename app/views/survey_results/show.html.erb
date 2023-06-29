@@ -1,12 +1,13 @@
-<div class="container">
+<div class="container" data-controller="survey-result" data-survey-result-hidden-class="hidden">
   <div class="flex flex-wrapper flex-column">
     <%= render 'shared/disclaimer' %>
+    <%= render 'top_nav' %>
     <% @suggested_dog_breeds.each_with_index do |dog, i| %>
-      <div class="dog-card">
+      <div class="dog-card <%= display_class(i) %>" data-survey-result-target="card" data-card-target="<%= dog.id %>">
         <h2 class="accent-title"><%= top_three_wording(i) %></h2>
+        <%= link_to 'View on American Kennel Club &nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i>'.html_safe, dog.akc_url, class: 'external-link', target: '_blank'  %>
         <div class="dog-head">
           <h2><%= dog.name %></h2>
-          <%= link_to 'View on American Kennel Club &nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i>'.html_safe, dog.akc_url, class: 'external-link', target: '_blank'  %>
         </div>
         <div class="dog-attribute">
           <h3>Average Weight:  <%= dog.average_weight %>lbs</h3>
@@ -47,7 +48,7 @@
             </div>
           </div>
           <div class="dog-attribute">
-            <h3>Grooming attention score:</h3>
+            <h3>Grooming level:</h3>
             <div class="paw-values">
               <% (1..5).each do |iteration|%>
                 <%= display_score(dog.grooming_score, iteration).html_safe %>
@@ -55,7 +56,7 @@
             </div>
           </div>
           <div class="dog-attribute">
-            <h3>Drooling Score:</h3>
+            <h3>Drooling level:</h3>
             <div class="paw-values">
               <% (1..5).each do |iteration|%>
                 <%= display_score(dog.drooling_score, iteration).html_safe %>
@@ -71,7 +72,7 @@
             </div>
           </div>
           <div class="dog-attribute">
-            <h3>Playfulness Score:</h3>
+            <h3>Playfulness level:</h3>
             <div class="paw-values">
               <% (1..5).each do |iteration|%>
                 <%= display_score(dog.playfulness_score, iteration).html_safe %>
@@ -79,7 +80,7 @@
             </div>
           </div>
           <div class="dog-attribute">
-            <h3>Protective Score:</h3>
+            <h3>Protective level:</h3>
             <div class="paw-values">
               <% (1..5).each do |iteration|%>
                 <%= display_score(dog.protective_score, iteration).html_safe %>
@@ -87,7 +88,7 @@
             </div>
           </div>
           <div class="dog-attribute">
-            <h3>Adaptability Score:</h3>
+            <h3>Adaptability level:</h3>
             <div class="paw-values">
               <% (1..5).each do |iteration|%>
                 <%= display_score(dog.adaptability_score, iteration).html_safe %>
@@ -95,7 +96,7 @@
             </div>
           </div>
           <div class="dog-attribute">
-            <h3>Trainability Score:</h3>
+            <h3>Trainability level:</h3>
             <div class="paw-values">
               <% (1..5).each do |iteration|%>
                 <%= display_score(dog.trainability_score, iteration).html_safe %>
@@ -103,7 +104,7 @@
             </div>
           </div>
           <div class="dog-attribute">
-            <h3>Energy Score:</h3>
+            <h3>Energy level:</h3>
             <div class="paw-values">
               <% (1..5).each do |iteration|%>
                 <%= display_score(dog.energy_score, iteration).html_safe %>
@@ -111,7 +112,7 @@
             </div>
           </div>
           <div class="dog-attribute">
-            <h3>Barking Score:</h3>
+            <h3>Barking level:</h3>
             <div class="paw-values">
               <% (1..5).each do |iteration|%>
                 <%= display_score(dog.barking_score, iteration).html_safe %>
@@ -119,7 +120,7 @@
             </div>
           </div>
           <div class="dog-attribute">
-            <h3>Mental Stimulation Score:</h3>
+            <h3>Mental stimulation level:</h3>
             <div class="paw-values">
               <% (1..5).each do |iteration|%>
                 <%= display_score(dog.mental_stim_score, iteration).html_safe %>

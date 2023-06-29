@@ -16,4 +16,8 @@ module SurveyResultsHelper
       '<i class="fa-solid fa-bone bone blue-bone"></i>'
     end
   end
+
+  def display_class(index)
+    'hidden' unless index == 0
+  end
 end

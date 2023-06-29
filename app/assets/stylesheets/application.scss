@@ -20,6 +20,7 @@
   --primary-dark: #003E8C;
   --lightgray: #d3d3d3;
   --pink: #f472b6;
+  --light-pink: #FDE2F0;
 }
 
 * {
@@ -171,13 +172,13 @@ hr {
   background-color: #fff;
   padding: 2rem;
   margin-bottom: 1.5rem;
-  border-radius: 1rem;
+  border-radius: 0 0 1rem 1rem;
   border: 1px var(--lightgray) solid;
 }
 
 .accent-title {
-  font-size: 2rem;
-  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
   color: var(--primary);
   font-weight: 700;
 }
@@ -185,6 +186,10 @@ hr {
 .dog-head {
   display: flex;
   justify-content: space-between;
+}
+
+.dog-head h2 {
+  font-size: 1.9rem;
 }
 
 .dog-attributes {
@@ -223,6 +228,32 @@ hr {
   border-radius: 0 0 1rem 1rem;
 }
 
+.top-three-nav {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 1rem 1rem 0 0;
+  border: 1px var(--lightgray) solid;
+}
+
+.top-three-nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  list-style: none;
+  padding: 1rem 1.5rem;
+}
+
+.top-three-nav ul li {
+  font-weight: 600;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+}
+
+.top-num {
+  font-size: 1.3rem;
+  color: var(--primary);
+}
+
 /* BUTTONS */
 .btn {
   cursor: pointer;
@@ -246,4 +277,18 @@ hr {
 
 .btn-primary:hover {
   background-color: var(--primary-dark);
+}
+
+.btn-nav {
+  text-align: center;
+  background-color: #fff;
+}
+
+.btn-nav:hover {
+  background-color: var(--primary);
+  color: #fff;
+}
+
+.btn-nav:hover .top-num {
+  color: #fff;
 }

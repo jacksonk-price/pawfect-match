@@ -1,0 +1,7 @@
+<nav class="top-three-nav">
+  <ul>
+    <% @suggested_dog_breeds.each_with_index do |dog, i| %>
+      <li><%= button_tag "<span class=\"top-num\">#{ i + 1 }.</span> #{dog.name}".html_safe, type: 'button', class: 'btn btn-nav', data: { card: dog.id, action: 'click->survey-result#show' } %></li>
+    <% end %>
+  </ul>
+</nav>
