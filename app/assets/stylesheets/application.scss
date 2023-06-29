@@ -40,11 +40,6 @@ a {
   text-decoration: none;
 }
 
-.external-link {
-  display: block;
-  margin-top: 0.5rem;
-}
-
 body {
   background-image: image-url('background.png');
   background-repeat: no-repeat;
@@ -171,21 +166,21 @@ hr {
 .dog-card {
   background-color: #fff;
   padding: 2rem;
-  margin-bottom: 1.5rem;
   border-radius: 0 0 1rem 1rem;
   border: 1px var(--lightgray) solid;
 }
 
 .accent-title {
   font-size: 1.3rem;
-  margin-bottom: 0.5rem;
   color: var(--primary);
   font-weight: 700;
 }
 
-.dog-head {
+.card-top {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
 }
 
 .dog-head h2 {
@@ -254,6 +249,15 @@ hr {
   color: var(--primary);
 }
 
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease;
+}
+
 /* BUTTONS */
 .btn {
   cursor: pointer;
@@ -280,15 +284,11 @@ hr {
 }
 
 .btn-nav {
+  border-radius: 0;
   text-align: center;
   background-color: #fff;
 }
 
-.btn-nav:hover {
-  background-color: var(--primary);
-  color: #fff;
-}
-
-.btn-nav:hover .top-num {
-  color: #fff;
+.selected {
+  border-bottom: 3px var(--primary) solid;
 }

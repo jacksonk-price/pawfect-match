@@ -5,14 +5,27 @@ export default class extends Controller {
     static classes = ['hidden'];
 
     show(event) {
-        console.log('Card targets:', this.cardTargets);
+        this.hideAllCards();
+        this.removeAllSelectedClass();
+        this.addSelectedClass(event.target);
         const target = event.target.dataset.card;
         const card = this.cardTargets.find((card) => card.dataset.cardTarget === target);
-        this.hideAllCards();
         card.classList.remove('hidden');
+        card.classList.add('fade-in');
     }
 
     hideAllCards() {
-        this.cardTargets.forEach((el) => el.classList.add(this.hiddenClass));
+        this.cardTargets.forEach((el) => {
+            el.classList.add(this.hiddenClass);
+            el.classList.remove('fade-in');
+        });
+    }
+
+    addSelectedClass(element) {
+        element.classList.add('selected');
+    }
+
+    removeAllSelectedClass() {
+        document.querySelector('.selected').classList.remove('selected');
     }
 }

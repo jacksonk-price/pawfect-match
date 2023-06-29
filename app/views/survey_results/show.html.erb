@@ -4,8 +4,10 @@
     <%= render 'top_nav' %>
     <% @suggested_dog_breeds.each_with_index do |dog, i| %>
       <div class="dog-card <%= display_class(i) %>" data-survey-result-target="card" data-card-target="<%= dog.id %>">
-        <h2 class="accent-title"><%= top_three_wording(i) %></h2>
-        <%= link_to 'View on American Kennel Club &nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i>'.html_safe, dog.akc_url, class: 'external-link', target: '_blank'  %>
+        <div class="card-top">
+          <h2 class="accent-title"><%= top_three_wording(i) %></h2>
+          <%= link_to 'View on American Kennel Club &nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i>'.html_safe, dog.akc_url, class: 'external-link', target: '_blank'  %>
+        </div>
         <div class="dog-head">
           <h2><%= dog.name %></h2>
         </div>
