@@ -1,6 +1,5 @@
 <div class="container" data-controller="survey-result" data-survey-result-hidden-class="hidden">
   <div class="flex flex-wrapper flex-column">
-    <%= render 'shared/disclaimer' %>
     <%= render 'top_nav' %>
     <% @suggested_dog_breeds.each_with_index do |dog, i| %>
       <div class="dog-card <%= display_class(i) %>" data-survey-result-target="card" data-card-target="<%= dog.id %>">
@@ -11,7 +10,7 @@
         <div class="dog-head">
           <h2><%= dog.name %></h2>
         </div>
-        <div class="dog-attribute">
+        <div class="dog-attribute dog-weight">
           <h3>Average Weight:  <%= dog.average_weight %>lbs</h3>
         </div>
         <p><%= dog.description %></p>
@@ -133,4 +132,5 @@
       </div>
     <% end %>
   </div>
+  <%= render 'shared/disclaimer' %>
 </div>
