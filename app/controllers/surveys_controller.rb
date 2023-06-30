@@ -15,7 +15,7 @@ class SurveysController < ApplicationController
           SuggestedBreed.create(dog_id: dog.id, survey_result_id: survey_result.id)
         end
 
-        format.html { redirect_to survey_result_path(survey_result.id), notice: "Survey was successfully created." }
+        format.html { redirect_to survey_result_path(survey_result.slug), notice: "Survey was successfully created." }
       else
         Rails.logger.info @survey.errors.messages
       end

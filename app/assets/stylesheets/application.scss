@@ -233,8 +233,7 @@ hr {
 
 .top-three-nav ul {
   display: flex;
-  flex-direction: row;
-  flex-flow: row wrap;
+  flex-flow: column wrap;
   justify-content: space-between;
   list-style: none;
   padding: 1rem 1.5rem;
