@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Survey, type: :model do
-  it 'has a name input' do
+  it 'has an optional name input' do
     survey = Survey.new(name_input: '',
                         size_input: 5, family_input: 5,
                         children_input: 5, other_dog_input: 5,
@@ -10,7 +10,7 @@ RSpec.describe Survey, type: :model do
                         playfulness_input: 5, protective_input: 5,
                         adaptability_input: 5, trainability_input: 5,
                         energy_input: 5, barking_input: 5, mental_stim_input: 5)
-    expect(survey).to_not be_valid
+    expect(survey).to be_valid
     survey.name_input = 'Jackson'
     expect(survey).to be_valid
   end

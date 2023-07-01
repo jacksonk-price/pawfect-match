@@ -25,12 +25,7 @@ export default class extends Controller {
     validateCurrentQuestion() {
         const currentQuestion = this.questionTargets[this.currentIndex];
 
-        if (this.currentIndex === 0) {
-            const input= currentQuestion.querySelector('input[type="text"]');
-            if (input.value.trim() === '') {
-                return false;
-            }
-        } else {
+        if (this.currentIndex !== 0) {
             const selectedOption= currentQuestion.querySelector('input[type="radio"]:checked');
             if (!selectedOption) {
                 return false;
