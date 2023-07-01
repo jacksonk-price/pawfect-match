@@ -1,6 +1,6 @@
 require 'csv'
 
-question1 = Question.create(content: 'What size dog do you prefer?', description: 'Small ( less than 22lbs ) | Medium ( 22lbs - 55lbs ) | Large ( 55lbs - 115lbs ) | Very large ( greater than 115lbs )')
+question1 = Question.create(content: 'What size dog do you prefer?')
 answer_choice1 = AnswerChoice.create(text: 'Any', value: 1)
 answer_choice2 = AnswerChoice.create(text: 'Small ( less than 22lbs )', value: 2)
 answer_choice3 = AnswerChoice.create(text: 'Medium ( 22lbs - 55lbs )', value: 3)
