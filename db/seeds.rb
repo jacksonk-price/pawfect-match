@@ -1,3 +1,5 @@
+require 'csv'
+
 question1 = Question.create(content: 'What size dog do you prefer?', description: 'Small ( less than 22lbs ) | Medium ( 22lbs - 55lbs ) | Large ( 55lbs - 115lbs ) | Very large ( greater than 115lbs )')
 answer_choice1 = AnswerChoice.create(text: 'Any', value: 1)
 answer_choice2 = AnswerChoice.create(text: 'Small ( less than 22lbs )', value: 2)
@@ -147,3 +149,13 @@ QuestionAnswerChoice.create(question_id: question15.id, answer_choice_id: answer
 QuestionAnswerChoice.create(question_id: question15.id, answer_choice_id: answer_choice58.id)
 QuestionAnswerChoice.create(question_id: question15.id, answer_choice_id: answer_choice59.id)
 QuestionAnswerChoice.create(question_id: question15.id, answer_choice_id: answer_choice60.id)
+
+def import_dogs_csv
+  csv_text = File.read('public/dog-data-cleaned.csv')
+  csv = CSV.parse(csv_text, :headers => true)
+  csv.each do |row|
+    Dog.create!(row.to_hash)
+  end
+end
+
+import_dogs_csv
