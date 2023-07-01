@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: pawfect_match_production
-  username: pawfect_match
-  password: <%= ENV["PAWFECT_MATCH_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
