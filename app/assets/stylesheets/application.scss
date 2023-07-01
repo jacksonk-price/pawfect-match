@@ -308,6 +308,12 @@ header a {
   height: 100%;
 }
 
+.question-count {
+  font-weight: bold;
+  font-size: 1.3rem;
+  color: var(--primary);
+}
+
 /* Media Queries */
 @media (max-width: 810px) {
   .top-three-nav ul {

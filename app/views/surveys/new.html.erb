@@ -4,7 +4,7 @@
       <%= render 'shared/disclaimer' %>
       <div class="question-container" data-survey-target="question">
         <fieldset>
-          <legend>Now, let's start with your name</legend>
+          <legend>Now, let's start with your name (optional)</legend>
           <%= s.text_field :name_input, placeholder: 'Enter your name' %>
         </fieldset>
         <div class="options">
@@ -13,8 +13,9 @@
       </div>
       <% @questions.each_with_index do |question, index| %>
         <div class="question-container hidden" data-survey-target="question">
+          <p class="question-count"><%= index + 1 %> / 15</p>
           <fieldset>
-            <legend><%= index + 1 %>. <%= question.content %></legend>
+            <legend><%= question.content %></legend>
             <% question.answer_choices.each_with_index do |answer_choice, i| %>
               <div class="radio-container">
                 <%= s.label "#{question.survey_attribute_name}_#{answer_choice.value}" do %>
