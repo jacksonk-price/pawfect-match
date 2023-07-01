@@ -42,7 +42,7 @@ QuestionAnswerChoice.create(question_id: question5.id, answer_choice_id: answer_
 QuestionAnswerChoice.create(question_id: question5.id, answer_choice_id: answer_choice15.id)
 QuestionAnswerChoice.create(question_id: question5.id, answer_choice_id: answer_choice16.id)
 
-question6 = Question.create(content: 'How much grooming are you able to provide for you dog?', order: 6, survey_attribute: 'grooming_input')
+question6 = Question.create(content: 'How much grooming are you able to provide for you dog?', order: 6, survey_attribute_name: 'grooming_input')
 answer_choice17 = AnswerChoice.create(text: 'Monthly', value: 1)
 answer_choice18 = AnswerChoice.create(text: 'A couple of times a month', value: 2)
 answer_choice19 = AnswerChoice.create(text: 'Every week', value: 3)
