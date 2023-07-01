@@ -30,8 +30,12 @@
   box-sizing: border-box;
 }
 
-html, body, main {
+html, body {
   height: 100%;
+}
+
+main {
+  height: auto;
 }
 
 a {
@@ -83,11 +87,16 @@ hr {
   margin: 1rem 0;
 }
 
+header a {
+  color: #000;
+}
+
 .disclaimer {
   background-color: #fff;
   padding: 2rem;
   border-radius: 1rem;
   border: 1px var(--lightgray) solid;
+  margin-bottom: 2rem;
 }
 
 .disclaimer p {
@@ -318,6 +327,14 @@ hr {
 @media (max-width: 590px) {
   .card-top {
     flex-direction: column;
+  }
+
+  .dog-card {
+    padding: 1.5rem;
+  }
+
+  .disclaimer {
+    padding: 1.5rem;
   }
 
   .external-link {

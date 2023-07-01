@@ -1,9 +1,10 @@
 <div class="container max-height">
   <div class="flex flex-wrapper">
     <%= form_for @survey, data: { controller: 'survey', survey_hidden_class: 'hidden' } do |s| %>
+      <%= render 'shared/disclaimer' %>
       <div class="question-container" data-survey-target="question">
         <fieldset>
-          <legend>Let's start with your name</legend>
+          <legend>Now, let's start with your name</legend>
           <%= s.text_field :name_input, placeholder: 'Enter your name' %>
         </fieldset>
         <div class="options">
@@ -36,6 +37,5 @@
         <p>Please answer the question before continuing.</p>
       </div>
     <% end %>
-    <%= render 'shared/disclaimer' %>
   </div>
 </div>

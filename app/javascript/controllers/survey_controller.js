@@ -1,11 +1,12 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-    static targets = ['question', 'flash'];
+    static targets = ['question', 'flash', 'disclaimer'];
     static classes = ['hidden'];
     initialize() {
         this.currentIndex = 0;
         this.boolFlashShowing = false;
+        this.boolDisclaimerShowing = true;
         this.hideQuestions();
         this.showCurrentQuestion();
     }
@@ -57,6 +58,10 @@ export default class extends Controller {
         if (this.currentIndex < this.questionTargets.length - 1) {
             if(this.boolFlashShowing) {
                 this.hideFlashError();
+            }
+
+            if (this.boolDisclaimerShowing) {
+                this.disclaimerTarget.classList.add(this.hiddenClass);
             }
             this.currentIndex++;
             this.hideQuestions();

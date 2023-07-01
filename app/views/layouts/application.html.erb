@@ -4,6 +4,7 @@
     <title>PawfectMatch</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="description" content="Match with the perfect dog breed.">
+    <%= favicon_link_tag('favicon-32x32.png') %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -16,10 +17,12 @@
     <main>
       <div class="container">
         <header>
-          <div class="logo">
-            <i class="fa-solid fa-paw"></i>
-            <h1>Pawfect Match</h1>
-          </div>
+          <%= link_to root_path do %>
+            <div class="logo">
+              <i class="fa-solid fa-paw"></i>
+              <h1>Pawfect Match</h1>
+            </div>
+          <% end %>
         </header>
       </div>
       <%= yield %>
