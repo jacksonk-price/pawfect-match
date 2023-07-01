@@ -1,6 +1,6 @@
 require 'csv'
 
-question1 = Question.create(content: 'What size dog do you prefer?')
+question1 = Question.create(content: 'What size dog do you prefer?', order: 1, survey_attribute_name: 'size_input')
 answer_choice1 = AnswerChoice.create(text: 'Any', value: 1)
 answer_choice2 = AnswerChoice.create(text: 'Small ( less than 22lbs )', value: 2)
 answer_choice3 = AnswerChoice.create(text: 'Medium ( 22lbs - 55lbs )', value: 3)
@@ -12,25 +12,25 @@ QuestionAnswerChoice.create(question_id: question1.id, answer_choice_id: answer_
 QuestionAnswerChoice.create(question_id: question1.id, answer_choice_id: answer_choice4.id)
 QuestionAnswerChoice.create(question_id: question1.id, answer_choice_id: answer_choice5.id)
 
-question2 = Question.create(content: 'Will your dog be around close friends and family?')
+question2 = Question.create(content: 'Will your dog be around close friends and family?', order: 2, survey_attribute_name: 'family_input')
 answer_choice6 = AnswerChoice.create(text: 'Yes', value: 1)
 answer_choice7 = AnswerChoice.create(text: 'No', value: 0)
 QuestionAnswerChoice.create(question_id: question2.id, answer_choice_id: answer_choice6.id)
 QuestionAnswerChoice.create(question_id: question2.id, answer_choice_id: answer_choice7.id)
 
-question3 = Question.create(content: 'Do you have children or will your dog be around children?')
+question3 = Question.create(content: 'Do you have children or will your dog be around children?', order: 3, survey_attribute_name: 'children_input')
 answer_choice8 = AnswerChoice.create(text: 'Yes', value: 1)
 answer_choice9 = AnswerChoice.create(text: 'No', value: 0)
 QuestionAnswerChoice.create(question_id: question3.id, answer_choice_id: answer_choice8.id)
 QuestionAnswerChoice.create(question_id: question3.id, answer_choice_id: answer_choice9.id)
 
-question4 = Question.create(content: 'Do you have other dogs/animals in your home?')
+question4 = Question.create(content: 'Do you have other dogs/animals in your home?', order: 4, survey_attribute_name: 'other_dog_input')
 answer_choice10 = AnswerChoice.create(text: 'Yes', value: 1)
 answer_choice11 = AnswerChoice.create(text: 'No', value: 0)
 QuestionAnswerChoice.create(question_id: question4.id, answer_choice_id: answer_choice10.id)
 QuestionAnswerChoice.create(question_id: question4.id, answer_choice_id: answer_choice11.id)
 
-question5 = Question.create(content: 'How much shedding is acceptable to you?')
+question5 = Question.create(content: 'How much shedding is acceptable to you?', order: 5, survey_attribute_name: 'shedding_input')
 answer_choice12 = AnswerChoice.create(text: 'No shedding at all', value: 1)
 answer_choice13 = AnswerChoice.create(text: 'I don\'t mind a tiny bit of shedding', value: 2)
 answer_choice14 = AnswerChoice.create(text: 'A medium level of shedding is okay', value: 3)
@@ -42,7 +42,7 @@ QuestionAnswerChoice.create(question_id: question5.id, answer_choice_id: answer_
 QuestionAnswerChoice.create(question_id: question5.id, answer_choice_id: answer_choice15.id)
 QuestionAnswerChoice.create(question_id: question5.id, answer_choice_id: answer_choice16.id)
 
-question6 = Question.create(content: 'How much grooming are you able to provide for you dog?')
+question6 = Question.create(content: 'How much grooming are you able to provide for you dog?', order: 6, survey_attribute: 'grooming_input')
 answer_choice17 = AnswerChoice.create(text: 'Monthly', value: 1)
 answer_choice18 = AnswerChoice.create(text: 'A couple of times a month', value: 2)
 answer_choice19 = AnswerChoice.create(text: 'Every week', value: 3)
@@ -54,7 +54,7 @@ QuestionAnswerChoice.create(question_id: question6.id, answer_choice_id: answer_
 QuestionAnswerChoice.create(question_id: question6.id, answer_choice_id: answer_choice20.id)
 QuestionAnswerChoice.create(question_id: question6.id, answer_choice_id: answer_choice21.id)
 
-question7 = Question.create(content: 'How much drooling could you tolerate?')
+question7 = Question.create(content: 'How much drooling could you tolerate?', order: 7, survey_attribute_name: 'drooling_input')
 answer_choice22 = AnswerChoice.create(text: 'I do not want a dog that drools', value: 1)
 answer_choice23 = AnswerChoice.create(text: 'A little bit of drool', value: 2)
 answer_choice24 = AnswerChoice.create(text: 'Medium amounts of drool', value: 3)
@@ -66,13 +66,13 @@ QuestionAnswerChoice.create(question_id: question7.id, answer_choice_id: answer_
 QuestionAnswerChoice.create(question_id: question7.id, answer_choice_id: answer_choice25.id)
 QuestionAnswerChoice.create(question_id: question7.id, answer_choice_id: answer_choice26.id)
 
-question8 = Question.create(content: 'Will your dog be around strangers often?')
+question8 = Question.create(content: 'Will your dog be around strangers often?', order: 8, survey_attribute_name: 'stranger_input')
 answer_choice27 = AnswerChoice.create(text: 'Yes', value: 1)
 answer_choice28 = AnswerChoice.create(text: 'No', value: 0)
 QuestionAnswerChoice.create(question_id: question8.id, answer_choice_id: answer_choice27.id)
 QuestionAnswerChoice.create(question_id: question8.id, answer_choice_id: answer_choice28.id)
 
-question9 = Question.create(content: 'How much playfulness is acceptable?')
+question9 = Question.create(content: 'How much playfulness is acceptable?', order: 9, survey_attribute_name: 'playfulness_input')
 answer_choice29 = AnswerChoice.create(text: 'I do not want a playful dog', value: 1)
 answer_choice30 = AnswerChoice.create(text: 'A little bit of play', value: 2)
 answer_choice31 = AnswerChoice.create(text: 'A normal amount of playfulness', value: 3)
@@ -84,13 +84,13 @@ QuestionAnswerChoice.create(question_id: question9.id, answer_choice_id: answer_
 QuestionAnswerChoice.create(question_id: question9.id, answer_choice_id: answer_choice32.id)
 QuestionAnswerChoice.create(question_id: question9.id, answer_choice_id: answer_choice33.id)
 
-question10 = Question.create(content: 'Do you want your dog to be protective?')
+question10 = Question.create(content: 'Do you want your dog to be protective?', order: 10, survey_attribute_name: 'protective_input')
 answer_choice34 = AnswerChoice.create(text: 'Yes', value: 1)
 answer_choice35 = AnswerChoice.create(text: 'No', value: 0)
 QuestionAnswerChoice.create(question_id: question10.id, answer_choice_id: answer_choice34.id)
 QuestionAnswerChoice.create(question_id: question10.id, answer_choice_id: answer_choice35.id)
 
-question11 = Question.create(content: 'How much traveling will you be doing with your dog?')
+question11 = Question.create(content: 'How much traveling will you be doing with your dog?', order: 11, survey_attribute_name: 'adaptability_input')
 answer_choice36 = AnswerChoice.create(text: 'Never', value: 1)
 answer_choice37 = AnswerChoice.create(text: 'Rarely', value: 2)
 answer_choice38 = AnswerChoice.create(text: 'On occasion', value: 3)
@@ -102,7 +102,7 @@ QuestionAnswerChoice.create(question_id: question11.id, answer_choice_id: answer
 QuestionAnswerChoice.create(question_id: question11.id, answer_choice_id: answer_choice39.id)
 QuestionAnswerChoice.create(question_id: question11.id, answer_choice_id: answer_choice40.id)
 
-question12 = Question.create(content: 'How trainable do you want your dog to be?')
+question12 = Question.create(content: 'How trainable do you want your dog to be?', order: 12, survey_attribute_name: 'trainability_input')
 answer_choice41 = AnswerChoice.create(text: 'Very stubborn', value: 1)
 answer_choice42 = AnswerChoice.create(text: 'Stubborn', value: 2)
 answer_choice43 = AnswerChoice.create(text: 'Somewhat trainable', value: 3)
@@ -114,7 +114,7 @@ QuestionAnswerChoice.create(question_id: question12.id, answer_choice_id: answer
 QuestionAnswerChoice.create(question_id: question12.id, answer_choice_id: answer_choice44.id)
 QuestionAnswerChoice.create(question_id: question12.id, answer_choice_id: answer_choice45.id)
 
-question13 = Question.create(content: 'How energetic of a dog is tolerable for you?')
+question13 = Question.create(content: 'How energetic of a dog is tolerable for you?', order: 13, survey_attribute_name: 'energy_input')
 answer_choice46 = AnswerChoice.create(text: 'Calm', value: 1)
 answer_choice47 = AnswerChoice.create(text: 'Low energy', value: 2)
 answer_choice48 = AnswerChoice.create(text: 'Normal', value: 3)
@@ -126,7 +126,7 @@ QuestionAnswerChoice.create(question_id: question13.id, answer_choice_id: answer
 QuestionAnswerChoice.create(question_id: question13.id, answer_choice_id: answer_choice49.id)
 QuestionAnswerChoice.create(question_id: question13.id, answer_choice_id: answer_choice50.id)
 
-question14 = Question.create(content: 'How much barking can you put up with?')
+question14 = Question.create(content: 'How much barking can you put up with?', order: 14, survey_attribute_name: 'barking_input')
 answer_choice51 = AnswerChoice.create(text: 'None', value: 1)
 answer_choice52 = AnswerChoice.create(text: 'Very little', value: 2)
 answer_choice53 = AnswerChoice.create(text: 'Moderate amount', value: 3)
@@ -138,7 +138,7 @@ QuestionAnswerChoice.create(question_id: question14.id, answer_choice_id: answer
 QuestionAnswerChoice.create(question_id: question14.id, answer_choice_id: answer_choice54.id)
 QuestionAnswerChoice.create(question_id: question14.id, answer_choice_id: answer_choice55.id)
 
-question15 = Question.create(content: 'How much mental stimulation can/will you provide for your dog?')
+question15 = Question.create(content: 'How much mental stimulation can/will you provide for your dog?', order: 15, survey_attribute_name: 'mental_stim_input')
 answer_choice56 = AnswerChoice.create(text: 'None', value: 1)
 answer_choice57 = AnswerChoice.create(text: 'Very little', value: 2)
 answer_choice58 = AnswerChoice.create(text: 'Moderate amount', value: 3)
